@@ -1,7 +1,7 @@
 // Accordion
 //
 // Markup:
-// <ul aria-multiselectable="true" class="ffe-accordion" role="tablist">
+// <ul aria-multiselectable="true" class="ffe-accordion ffe-accordion{{modifier_class}}" role="tablist">
 //     <li class="ffe-accordion-item">
 //         <div tabindex="0" aria-controls="panel-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined" aria-expanded="false" class="ffe-accordion-item__toggler" id="tab-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined" role="tab">
 //             <span class="ffe-accordion-item__toggler-content">
@@ -15,7 +15,7 @@
 //              Skjult innhold
 //         </div>
 //     </li>
-//     <li class="ffe-accordion-item">
+//     <li class="ffe-accordion-item ffe-accordion-item--open">
 //         <div tabindex="0" aria-controls="panel-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined" aria-expanded="false" class="ffe-accordion-item__toggler" id="tab-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined" role="tab">
 //             <span class="ffe-accordion-item__toggler-content">
 //                 <span class="ffe-accordion-item__title">Enda en tittel</span>
@@ -25,7 +25,7 @@
 //             </span>
 //         </div>
 //         <div class="ffe-accordion-item__content" role="tabpanel" id="panel-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined" aria-hidden="true" aria-labelledby="tab-df0e51a1-cc6f-49f0-af8d-203595fe9d20-undefined">
-//             Mer skjult innhold
+//             Ikke skjult innhold
 //         </div>
 //     </li>
 //     <li class="ffe-accordion-item">
@@ -43,6 +43,7 @@
 //    </li>
 //</ul>
 //
+// --blue - Blue
 //
 // Styleguide ffe-accordion
 
@@ -63,7 +64,7 @@
         border-bottom: solid @ffe-grey-silver 1px;
     }
 
-    &--blue {
+    .ffe-accordion--blue & {
         border-top: 0;
         margin-bottom: 10px;
 
@@ -88,16 +89,16 @@
     transition: transform @ffe-transition-duration @ffe-ease-in-out-back,
         fill @ffe-transition-duration @ffe-ease;
 
-    &--blue {
+    .ffe-accordion--blue & {
         fill: @ffe-blue-royal;
     }
 
-    &--open {
+    .ffe-accordion-item--open & {
         transform: rotateZ(180deg);
         fill: @ffe-blue-royal;
     }
 
-    &--open&--blue {
+    .ffe-accordion--blue .ffe-accordion-item--open & {
         fill: @ffe-white;
     }
 }
@@ -105,7 +106,7 @@
 .ffe-accordion-item__content {
     padding: 10px 25px;
 
-    &--blue {
+    .ffe-accordion--blue & {
         padding: 10px 25px 0;
     }
 }
@@ -132,17 +133,17 @@
         .ffe-accordion-item__icon {
             fill: @ffe-blue-royal;
 
-            &--blue {
+            .ffe-accordion--blue & {
                 fill: @ffe-white;
             }
         }
     }
 
-    &--open {
+    .ffe-accordion-item--open & {
         color: @ffe-blue-royal;
     }
 
-    &--blue {
+    .ffe-accordion--blue & {
         color: @ffe-blue-royal;
         background-color: @ffe-blue-pale;
         border-radius: 3px;
@@ -154,7 +155,7 @@
         }
     }
 
-    &--open&--blue {
+    .ffe-accordion--blue .ffe-accordion-item--open & {
         color: @ffe-white;
         background-color: @ffe-blue-royal;
     }
